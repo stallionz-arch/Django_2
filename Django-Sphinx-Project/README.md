@@ -37,5 +37,4 @@ Change your directory to django_projects.
 5.Unzip the repo github and copy all the files inside the DjangoQuizSphinx  
 6.Paste the copied files and folders to the Sphinx folder that you created.  
 7.Install from requirements.txt if needed else you are all set to go  
-7.create a superuser (already created : username= admin , password = Qwerty@123)  
 8.python manage.py runserver  
