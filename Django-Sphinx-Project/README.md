@@ -2,7 +2,7 @@
 
 
 ## **Build Status
-See the screnshots for UI and working
+
 This is a configurable quiz app for Django.  
 
 **Current features
