@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+{% extends 'base.html' %}
+
+</head>
+{% block body %}
+<body   {% load staticfiles %}><br>
+    <br>
+    <br>
+    {% load admin_urls %}
+
+
+
+    {% if user.is_authenticated %}
+        <div class="bg-text">
+        <h2>Welcome</h2>
+        <h1 style="font-size:50px">{{ user.username }}</h1>
+        </div>
+        <div class="bg-text1">
+         <p>
+            <strong style="color: white">Total User registered yet :</strong>{{ count }}<strong></strong>
+         </p>
+            <button type="button" class="btn btn-success" onclick="location.href='{% url 'quiz:index' %}'" >Go to Quiz</button>
+
+        </div>
+
+
+    {% else %}
+         <br>
+        <br>
+         <br/>
+         <br/>
+         <br/>
+    <div class="bg-text2 col-md-8 col-md-offset-2 text-center fh5co-heading animate-box fadeInUp animated-fast">
+
+        <div ><h1 class="glow" >Curiosity</h1></div>
+					<p>
+    Curiosity, like a mystery has a surface innocence, surprise, the revelation of a concealed meaning and the catharsis of solution.
+
+        <p>Curiosity , being the cryptic extravaganza it is, is one of the most popular events of IEEE. It draws participation across all streams, departments and years, with 
+students battling it out for the glory.</p>
+    </div>
+    {% endif %}
+</body>
+{% endblock %}
