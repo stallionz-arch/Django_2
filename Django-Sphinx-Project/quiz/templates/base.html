@@ -15,7 +15,7 @@
     <script src="{% static 'quiz/js/main.js' %}"></script>
 
 </head>
-<body><br>
+<body ><br>
     <br>
     <br>
     <div class="navbar navbar-inverse navbar-fixed-top opaque-navbar">
@@ -68,6 +68,10 @@
     </div>
     </div>
 {% block body %}
+<script>
+    let tl1 = gsap.timeline({ defaults: { duration: 1 } }); 
+    tl1.from(".navbar-header" , {y : -5 , opacity : 0 , duration : 1 })
+</script>
 {% endblock %}
 </body>
 </html>

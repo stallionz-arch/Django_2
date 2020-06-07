@@ -1,45 +1,80 @@
 <!DOCTYPE html>
 <head>
-{% extends 'base.html' %}
-
+  {% extends 'base.html' %}
+  <link rel="stylesheet" href="{static 'quiz/styles.css'}" />
 </head>
 {% block body %}
-<body   {% load staticfiles %}><br>
-    <br>
-    <br>
-    {% load admin_urls %}
-
-
-
-    {% if user.is_authenticated %}
-        <div class="bg-text">
-        <h2>Welcome</h2>
-        <h1 style="font-size:50px">{{ user.username }}</h1>
-        </div>
-        <div class="bg-text1">
-         <p>
-            <strong style="color: white">Total User registered yet :</strong>{{ count }}<strong></strong>
-         </p>
-            <button type="button" class="btn btn-success" onclick="location.href='{% url 'quiz:index' %}'" >Go to Quiz</button>
-
-        </div>
-
+<body {% load staticfiles %}>
+  <div class="containerjs">
+    <br />
+    <br />
+    <br />
+    {% load admin_urls %} {% if user.is_authenticated %}
+    <div class="bg-text">
+      <h2>Welcome</h2>
+      <h1 style="font-size: 50px;">{{ user.username }}</h1>
+    </div>
+    <div class="bg-text1">
+      <p>
+        <strong style="color: white;">Total User registered yet :</strong>{{
+        count }}<strong></strong>
+      </p>
+      <button
+        type="button"
+        class="btn btn-success"
+        onclick="location.href='{% url 'quiz:index' %}'"
+      >
+        Go to Quiz
+      </button>
+    </div>
 
     {% else %}
-         <br>
-        <br>
-         <br/>
-         <br/>
-         <br/>
-    <div class="bg-text2 col-md-8 col-md-offset-2 text-center fh5co-heading animate-box fadeInUp animated-fast">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="pink-box">
+      <div
+        class="bg-text2 col-md-8 col-md-offset-2 text-center fh5co-heading animate-box fadeInUp animated-fast"
+      >
+        <div><h1 class="glow">Curiosity</h1></div>
+        <p class="curo-text1">
+          Curiosity, like a mystery has a surface innocence, surprise, the
+          revelation of a concealed meaning and the catharsis of solution.
+        </p>
 
-        <div ><h1 class="glow" >Curiosity</h1></div>
-					<p>
-    Curiosity, like a mystery has a surface innocence, surprise, the revelation of a concealed meaning and the catharsis of solution.
-
-        <p>Curiosity , being the cryptic extravaganza it is, is one of the most popular events of IEEE. It draws participation across all streams, departments and years, with 
-students battling it out for the glory.</p>
+        <p class="curo-text2">
+          Curiosity , being the cryptic extravaganza it is, is one of the most
+          popular events of IEEE. It draws participation across all streams,
+          departments and years, with students battling it out for the glory.
+        </p>
+      </div>
     </div>
-    {% endif %}
+  </div>
+  {% endif %}
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js
+"></script>
+
+<script>
+  const Text = document.querySelector(".curo-text1");
+
+  let tl = gsap.timeline({ defaults: { duration: 1 } });
+  tl.from(".pink-box", { height: "0%", duration: 1 })
+    .from(".curo-text1", {
+      opacity: 0,
+      duration: 1,
+      y: -25,
+      stagger: 0.6,
+      ease: "elastic",
+    })
+    .from(".curo-text2", {
+      opacity: 0,
+      duration: 1,
+      y: 25,
+      stagger: 0.6,
+      ease: "elastic",
+    });
+</script>
 {% endblock %}
