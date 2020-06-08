@@ -66,6 +66,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  cursor: none;
 }
 section {
   background: yellow;
@@ -153,6 +154,7 @@ ul.dropdown-menu {
   transition: all 0.3 ease;
   transition-property: background, transform;
   transform-origin: 100% 100%;
+  backdrop-filter: blur();
 }
 
 .link-grow {
