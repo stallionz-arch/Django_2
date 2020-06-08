@@ -34,6 +34,7 @@
   <br />
   <div
     class="bg-text2 col-md-8 col-md-offset-2 text-center fh5co-heading animate-box fadeInUp animated-fast"
+    id="pink_box"
   >
     <div><h1 class="glow">Curiosity</h1></div>
     <p class="box-text1">
@@ -52,22 +53,34 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js
     "></script>
   <script>
-    let tl = gsap.timeline({ delay: 0.7, defaults: { duration: 1 } });
+    let tl = gsap.timeline({ delay: 0.7, defaults: { duration: 1.4 } });
 
-    tl.from(".glow", {
+    tl.from("#pink_box", {
       opacity: 0,
-      y: -100,
-      ease: "bounce",
+      y: -200,
+      ease: "back.out(4)",
     })
+      .from(".glow", {
+        opacity: 0,
+        y: -100,
+        ease: "bounce",
+        stagger: 0.6,
+      })
+      .from("html", {
+        "--myleftop": "pink",
+        "--myrightbot": "yellow",
+        yoyo: true,
+        repeat: -1,
+      })
       .from(".box-text1", {
         opacity: 0,
         x: -100,
-        stagger: 0.7,
+        ease: "rough",
       })
       .from(".box-text2", {
         opacity: 0,
         x: 100,
-        stagger: 0.6,
+        ease: "rough",
       });
   </script>
 </body>
