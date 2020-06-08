@@ -36,56 +36,61 @@
     <br />
     <br />
     <br />
-    <div class="navbar navbar-inverse navbar-fixed-top opaque-navbar">
-      <div class="navbar-header">
-        <button
-          type="button"
-          class="navbar-toggle"
-          data-toggle="collapse"
-          data-target="#topNavBar"
-        >
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'home' %}">Curiosity</a>
-        <!--add karna hai homepage ka link-->
-      </div>
+    <div class="cursor"></div>
+    <div class="nav_head">
+      <div class="navbar navbar-inverse navbar-fixed-top opaque-navbar">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#topNavBar"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'home' %}">Curiosity</a>
+          <!--add karna hai homepage ka link-->
+        </div>
 
-      <!-- Items -->
-      <div class="collapse navbar-collapse" id="navMain">
-        <ul class="nav navbar-nav pull-right">
-          <li>
-            <a onclick="location.href='{% url 'admin:index' %}'">Admin Login</a>
-          </li>
-          {% if user.is_authenticated %}
-          <li>
-            <a href="{% url 'quiz:leaderboard' %}">
-              <span class="glyphicon glyphicon-list-alt"></span>LeaderBoard
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'quiz:progress' %}">Progress</a>
-          </li>
-          <li>
-            <a href="{% url 'password_change' %}">Change Password</a>
-          </li>
-          <li class="">
-            <a href="{% url 'logout' %}">
-              <span class="glyphicon glyphicon-off" aria-hidden="true"></span
-              >&nbsp; Logout
-            </a>
-          </li>
-          {% else %}
-          <li>
-            <a href="{% url 'signup' %}">SignUp</a>
-          </li>
-          <li>
-            <a href="{% url 'login' %}">Login</a>
-          </li>
+        <!-- Items -->
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="nav navbar-nav pull-right">
+            <li>
+              <a onclick="location.href='{% url 'admin:index' %}'"
+                >Admin Login</a
+              >
+            </li>
+            {% if user.is_authenticated %}
+            <li>
+              <a href="{% url 'quiz:leaderboard' %}">
+                <span class="glyphicon glyphicon-list-alt"></span>LeaderBoard
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'quiz:progress' %}">Progress</a>
+            </li>
+            <li>
+              <a href="{% url 'password_change' %}">Change Password</a>
+            </li>
+            <li class="">
+              <a href="{% url 'logout' %}">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span
+                >&nbsp; Logout
+              </a>
+            </li>
+            {% else %}
+            <li>
+              <a href="{% url 'signup' %}">SignUp</a>
+            </li>
+            <li>
+              <a href="{% url 'login' %}">Login</a>
+            </li>
 
-          {% endif %}
-        </ul>
+            {% endif %}
+          </ul>
+        </div>
       </div>
     </div>
   </body>
@@ -93,6 +98,16 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js"></script>
 <script>
+  let mouseCursor = document.querySelector(".cursor");
+  let navLinks = document.querySelectorAll(".nav_head li");
+
+  window.addEventListener("mousemove", cursor);
+
+  function cursor(e) {
+    mouseCursor.style.top = e.pageY + "px";
+    mouseCursor.style.left = e.pageX + "px";
+  }
+
   let tl2 = gsap.timeline({ default: { duration: 1 } });
 
   tl2.fromTo("body", { height: "100vh" }, { height: 0 });

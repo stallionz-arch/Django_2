@@ -139,3 +139,12 @@ ul.dropdown-menu {
       0 0 50px #7cff3f, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
   }
 }
+
+.cursor {
+  width: 3rem;
+  height: 3rem;
+  border: 2 px solid black;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+}
