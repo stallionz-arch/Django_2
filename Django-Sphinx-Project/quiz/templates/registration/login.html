@@ -1,65 +1,159 @@
 {% extends 'base.html' %}
 <head>
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap Sign up Form with Rounded Social Buttons</title>
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style type="text/css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap Sign up Form with Rounded Social Buttons</title>
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
     .social-btn .btn {
-		color: #fff;
-        margin: 10px 0 0 15px;
-		font-size: 15px;
-		border-radius: 50px;
-		font-weight: normal;
-		border: none;
-		transition: all 0.4s;
+      color: #fff;
+      margin: 10px 0 0 15px;
+      font-size: 15px;
+      border-radius: 50px;
+      font-weight: normal;
+      border: none;
+      transition: all 0.4s;
     }
-	.social-btn .btn:first-child {
-		margin-left: 0;
-	}
-	.social-btn .btn:hover {
-		opacity: 0.8;
-	}
-	.social-btn .btn-primary {
-		background: #507cc0;
-	}
-	.social-btn .btn-info {
-		background: #030702;
-	}
-	.social-btn .btn-danger {
-		background: #df2a1b;
-	}
-	.social-btn .btn i {
-		float: left;
-		margin: 3px 10px;
-		font-size: 20px;
-	}
-    </style>
+    .social-btn .btn:first-child {
+      margin-left: 0;
+    }
+    .social-btn .btn:hover {
+      opacity: 0.8;
+    }
+    .social-btn .btn-primary {
+      background: #507cc0;
+    }
+    .social-btn .btn-info {
+      background: #030702;
+    }
+    .social-btn .btn-danger {
+      background: #df2a1b;
+    }
+    .social-btn .btn i {
+      float: left;
+      margin: 3px 10px;
+      font-size: 20px;
+    }
+  </style>
+  {% block body %}
+  <style>
+    #form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+    }
+    #form_content {
+      background: rgba(255, 255, 255, 0.3);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+      padding: 5px;
+      min-height: 40vh;
+      min-width: 40vw;
+      border-radius: 20px;
+      color: black;
+      font-size: 1.5em;
+      font-weight: bold;
+      padding-bottom: 100px;
+      padding-top: 100px;
+    }
 
+    #form a:active,
+    a:hover,
+    a:visited,
+    a:any-link {
+      color: #030702;
+      text-decoration: none;
+    }
+
+    #form a:hover {
+      color: rgba(36, 35, 21, 0.884);
+    }
+    #form-content h2 {
+      font-size: 2em;
+      font-weight: 2em;
+    }
+    .sign-in {
+      text-align: center;
+      padding: 5px;
+      margin: 2px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-emphasis: none;
+      font-size: 1em;
+      font-weight: 500;
+    }
+    .forgot {
+      font-weight: bold;
+      opacity: 1;
+      color: black;
+    }
+
+    #copy {
+      color: rgb(46, 46, 40);
+    }
+  </style>
 </head>
-{% block body %}
-    <body class="text-center">
-    <div align="middle">
-        <div align="middle"></div>
-    <h2 class="h3 mb-3 font-weight-normal">Please Log in</h2>
-    <form class="form-signin" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-success btn-primary" type="submit">Log In</button>
-        <a href="{% url 'password_reset' %}">  Forgot password?</a>
-        <p class="mt-5 mb-3 text-muted">&copy; 2019-2022</p>
-    </form>
-    <br>
-  <p><strong>-- OR --</strong></p>
-        <div class="social-btn">
-			<a href="{% url 'social:begin' 'github' %}" class="btn btn-info btn-lg"><i class="fa fa-github"></i> Github</a>
-			<a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-danger btn-lg"><i class="fa fa-google"></i> Google</a>
-		</div>
+<body class="text-center">
+  <div id="form">
+    <div id="form_content">
+      <h2 class="h3 mb-3 font-weight-normal" id="please1">Please Log in</h2>
+      <form class="form-signin" method="post">
+        <div class="sign-in">
+          <font align="center">
+            {% csrf_token %} {{ form.as_p }}
+          </font>
+        </div>
+        <button class="btn btn-success btn-primary" type="submit">
+          Log In
+        </button>
+        <br />
+        <a href="{% url 'password_reset' %}" class="forget">
+          Forgot password?</a
+        >
+        <p class="mt-5 mb-3 text-muted" id="copy">&copy; 2019-2022</p>
+      </form>
+      <br />
+      <p><strong>-- OR --</strong></p>
+      <div class="social-btn">
+        <a href="{% url 'social:begin' 'github' %}" class="btn btn-info btn-lg"
+          ><i class="fa fa-github"></i> Github</a
+        >
+        <a
+          href="{% url 'social:begin' 'google-oauth2' %}"
+          class="btn btn-danger btn-lg"
+          ><i class="fa fa-google"></i> Google</a
+        >
+      </div>
     </div>
-  </body>
+  </div>
+</body>
+
+<script>
+  let tl3 = gsap.timeline({ delay: 0.7, defaults: { duration: 1 } });
+  tl3.fromTo("#form_content", { opacity: 0 }, { opacity: 1 }).from("#please1", {
+    y: -50,
+    opacity: 0,
+    ease: "bounce",
+  });
+</script>
 {% endblock %}
