@@ -15,7 +15,8 @@
     <script src="{% static 'quiz/js/main.js' %}"></script>
 
 </head>
-<body><br>
+<body >
+    <br>
     <br>
     <br>
     <div class="navbar navbar-inverse navbar-fixed-top opaque-navbar">
@@ -68,6 +69,15 @@
     </div>
     </div>
 {% block body %}
-{% endblock %}
+
 </body>
 </html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js"></script>
+<script>
+
+let tl = gsap.timeline( { default : { duration : 1}});
+
+tl.from(".containt" , { height : 0}  , { height : "100%"});
+</script>
+{% endblock %}
