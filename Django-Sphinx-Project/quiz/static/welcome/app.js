@@ -8,6 +8,7 @@ gsap.from("html", {
 tls = gsap.timeline({ default: { duration: 1 } });
 
 tls
+  .from("#message", { y: -200, opacity: 0, ease: "bounce" })
   .fromTo(
     "#message",
     { borderTopColor: "rgba(0, 0, 0, 0)" },

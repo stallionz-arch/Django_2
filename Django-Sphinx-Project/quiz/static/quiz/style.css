@@ -184,6 +184,9 @@ html {
   border-top: 2px solid var(--myleftop);
   border-left: 2px solid var(--myleftop);
   border-right: 5px ridge var(--myrightbot);
+  /* position: fixed;
+  top: 40vh;
+  left: 40vw; */
 }
 /* 
 @-webkit-keyframes .cursor {
