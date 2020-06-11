@@ -1,2 +1,4 @@
 .quizenv
 .vscode
+*.pyc
+*.sqlite3
