@@ -1,4 +1,5 @@
 argh==0.26.2
+asgiref==3.2.7
 bootstrap4==0.1.0
 certifi==2019.3.9
 chardet==3.0.4
@@ -7,10 +8,13 @@ Django==2.1.5
 Django-Bootstrap3-Validator==0.3.3
 django-leaderboard==0.1.0
 django-model-utils==3.1.2
+django-stubs==1.5.0
 djangorestframework==3.9.2
 djangorestframework-stubs==0.3.0
 filelock==3.0.10
 idna==2.8
+mypy==0.780
+mypy-extensions==0.4.3
 oauthlib==3.0.1
 pathtools==0.1.2
 Pillow==6.0.0
@@ -27,8 +31,11 @@ requests-oauthlib==1.2.0
 six==1.12.0
 social-auth-app-django==3.1.0
 social-auth-core==3.1.0
+sqlparse==0.3.1
 toml==0.10.0
 tornado==4.5.1
+typed-ast==1.4.1
+typing-extensions==3.7.4.2
 urllib3==1.24.1
 virtualenv==16.4.3
 watchdog==0.9.0

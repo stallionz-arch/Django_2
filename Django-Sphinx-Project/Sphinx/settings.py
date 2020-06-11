@@ -158,3 +158,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '171079719066-7e3lb7n5asi9ofg3kt82114o5dofmiu7.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ERN7GEt6RadzsMv3Nv2Pj99G'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #for sending email through console
+
+import django_heroku
+django_heroku.settings(locals())
