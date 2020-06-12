@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from dotenv import load_dotenv
 import django_heroku
+
+load_dotenv()
+#import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,10 +25,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.getenv("SECRET_KEY")
+#SECRET_KEY=os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+#DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG=False 
 
 ALLOWED_HOSTS = ['*']
 
@@ -143,12 +149,15 @@ USE_TZ = True
 #STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'quiz/static')
+]
+
+#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # STATICFILES_DIRS = (
 #     os.path.join(PROJECT_ROOT, 'static'),
 # )
-
 # media
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

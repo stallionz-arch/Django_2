@@ -43,3 +43,4 @@ websocket-client==0.56.0
 whitenoise==5.1.0
 gunicorn
 django-heroku
+python-dotenv
