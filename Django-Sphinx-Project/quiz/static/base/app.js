@@ -19,4 +19,4 @@ navLinks.forEach((link) => {
 
 let tl2 = gsap.timeline({ default: { duration: 1.5 } });
 
-tl2.fromTo("body", { height: "100vh" }, { height: 0 });
+tl2.fromTo("body", { height: "0vh" }, { height: "100vh" });
