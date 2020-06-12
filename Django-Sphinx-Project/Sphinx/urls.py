@@ -18,11 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from quiz import views
 
 urlpatterns = [
     path('', include('authenticate.urls')),
     path('admin/', admin.site.urls,),
     path('quiz/', include('quiz.urls')),
+    path('welcome', views.welcome, name='welcome'),
     path('sub/', include('subjective.urls')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
 
@@ -30,5 +32,7 @@ urlpatterns = [
 
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

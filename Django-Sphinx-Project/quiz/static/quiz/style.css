@@ -61,11 +61,13 @@
   text-align: center;
 }
 body {
-  margin-bottom: 800px;
+  /* margin-bottom: 800px; */
   background: white url("images/bgd.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  height: 100vh;
+  width: 100vw;
   /* cursor: none; */
 }
 section {
@@ -184,6 +186,9 @@ html {
   border-top: 2px solid var(--myleftop);
   border-left: 2px solid var(--myleftop);
   border-right: 5px ridge var(--myrightbot);
+  /* position: fixed;
+  top: 40vh;
+  left: 40vw; */
 }
 /* 
 @-webkit-keyframes .cursor {

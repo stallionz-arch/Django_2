@@ -2,17 +2,17 @@ import random
 
 from django.contrib.auth.decorators import login_required, permission_required
 from django.core.exceptions import PermissionDenied
-from django.shortcuts import get_object_or_404, render,render_to_response
+from django.shortcuts import get_object_or_404, render, render_to_response
 from django.utils.decorators import method_decorator
 from django.views.generic import DetailView, ListView, View
 from django.views.generic.edit import FormView
 from .forms import QuestionForm
-from .models import Quiz, Category,Sitting,Question,UserProgress
+from .models import Quiz, Category, Sitting, Question, UserProgress
 from subjective.models import Subscore
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from subjective.models import QuestionSub, AnswerSub ,Subscore
+from subjective.models import QuestionSub, AnswerSub, Subscore
 from mcq.models import Mcqscore
 from django.http import HttpResponseRedirect, HttpResponse
 from subjective import models
@@ -21,6 +21,11 @@ from django.urls import reverse_lazy, reverse
 from mcq.models import Mcqscore
 
 a = UserProgress()
+
+
+def welcome(request):
+    return render(request, 'welcome/index.html')
+
 
 def index(request):
     return render(request, 'index.html', {})
@@ -180,7 +185,6 @@ def ProgressView(request):
             a2.save()
             marks += a2.subscore
 
-
     if len(Mcqscore.objects.all()):
         try:
             a1 = Mcqscore.objects.get(user=curr_user)
@@ -188,12 +192,13 @@ def ProgressView(request):
                 marks += a1.mcqscore
         except:
             a1 = Mcqscore()
-            a1.user=request.user
-            a1.usermcq=request.user
+            a1.user = request.user
+            a1.usermcq = request.user
             a1.mcqscore = 0
             a1.save()
             marks += a1.mcqscore
-    return render(request, 'progress.html', {"user": request.user, "marks":marks})
+    return render(request, 'progress.html', {"user": request.user, "marks": marks})
+
 
 def LeaderBoard(request):
     from subjective.views import createobject
@@ -201,9 +206,9 @@ def LeaderBoard(request):
     rank = Subscore.objects.all()
     obj = Mcqscore.objects.all()
 
-    kj=0
+    kj = 0
     print(obj)
-    if len(rank)>0:
+    if len(rank) > 0:
         for i in rank:
             print("j")
 
@@ -212,21 +217,21 @@ def LeaderBoard(request):
                     print(rank[kj].subscore)
                     rank[kj].subscore += j.mcqscore
                     print(rank[kj].subscore)
-            kj+=1
+            kj += 1
         newlist = sorted(rank, key=lambda x: x.subscore, reverse=True)
-    elif len(obj)>0:
+    elif len(obj) > 0:
         for i in obj:
             print("j")
             for j in rank:
                 if j.usersub == i.usermcq:
-                    #print(rank[kj].subscore)
+                    # print(rank[kj].subscore)
                     obj[kj].mcqscore += j.subscore
-                    #print(rank[kj].subscore)
+                    # print(rank[kj].subscore)
             kj += 1
         newlist = sorted(obj, key=lambda x: x.mcqscore, reverse=True)
 
     # To return a new list, use the sorted() built-in function...
-    if (len(obj)==0 and len(rank)==0):
+    if (len(obj) == 0 and len(rank) == 0):
         return render(request, 'leaderboard1.html')
     print(newlist)
-    return render(request,'leaderboard.html', {'newlist':newlist})
+    return render(request, 'leaderboard.html', {'newlist': newlist})
