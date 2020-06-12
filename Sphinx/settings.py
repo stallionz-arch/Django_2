@@ -154,7 +154,11 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'quiz/static')
 ]
 
+COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 
 # STATICFILES_DIRS = (
 #     os.path.join(PROJECT_ROOT, 'static'),
