@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -166,3 +167,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '171079719066-7e3lb7n5asi9ofg3kt82114o5dofmiu7.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ERN7GEt6RadzsMv3Nv2Pj99G'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #for sending email through console
+
+
+django_heroku.settings(locals())

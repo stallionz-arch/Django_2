@@ -1,1 +1,1 @@
-web: gunicorn Sphinx.wsgi --log-file -
+web: gunicorn Sphinx.wsgi
