@@ -55,8 +55,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
 
-    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',   
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -148,18 +148,6 @@ USE_TZ = True
 
 #PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 #STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'quiz/static')
-]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 # STATICFILES_DIRS = (
 #     os.path.join(PROJECT_ROOT, 'static'),
@@ -185,3 +173,18 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #for sending em
 
 
 django_heroku.settings(locals())
+
+
+STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'quiz/static')
+]
+
+
+#COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
