@@ -33,7 +33,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 #DEBUG = config('DEBUG', default=False, cast=bool)
 DEBUG=False 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://inquest.herokuapp.com/']
 
 
 
