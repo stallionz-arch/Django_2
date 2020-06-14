@@ -28,7 +28,7 @@ cl.addEventListener("mouseover", typeWriter);
 var i = 0;
 var txt2 =
   "Qriosity , being the cryptic extravaganza it is, is one of the most popular events of IEEE. It draws participation across all streams, departments and years, with students battling it out for the glory.";
-var speed = 25;
+var speed = 50;
 
 function typeWriter() {
   if (i < txt2.length) {
