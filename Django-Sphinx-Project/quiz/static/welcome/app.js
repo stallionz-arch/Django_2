@@ -8,6 +8,8 @@ gsap.from("html", {
 tls = gsap.timeline({ default: { duration: 1 } });
 
 tls
+  .fromTo("#particles-js", { x: "500", opacity: 0 }, { x: "0", opacity: 1 })
+  .fromTo("header", { x: "-500", opacity: 0 }, { x: "0", opacity: 1 })
   .from("#message", { y: -200, opacity: 0, ease: "bounce" })
   .fromTo(
     "#message",

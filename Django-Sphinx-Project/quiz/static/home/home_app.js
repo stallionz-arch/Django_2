@@ -1,10 +1,6 @@
-let tl = gsap.timeline({ delay: 0.7, defaults: { duration: 1.4 } });
+let tl = gsap.timeline({ delay: 1.5, defaults: { duration: 1.4 } });
 
-tl.from("#pink_box", {
-  opacity: 0,
-  y: -200,
-  ease: "back.out(4)",
-})
+tl.fromTo(".nonauth", { height: 0 }, { height: "100%" })
   .from(".glow", {
     opacity: 0,
     y: -100,
