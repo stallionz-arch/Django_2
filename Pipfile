@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 [[source]]
 name = "pypi"
 url = "https://pypi.org/simple"
@@ -46,4 +46,4 @@ whitenoise = "*"
 
 [requires]
 python_version = "3.8"
->>>>>>> 08cd05089574f76fda62a9533da4993da2bafbbe
+
