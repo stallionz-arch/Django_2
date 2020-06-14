@@ -19,14 +19,14 @@ html {
   font-size: larger;
 }
 
-.pink_box {
+/* .pink_box {
   border-bottom: 5px ridge var(--myrightbot);
   border-top: 2px solid var(--myleftop);
   border-left: 2px solid var(--myleftop);
   border-right: 5px ridge var(--myrightbot);
   padding: 10px;
   font-family: "Roboto", sans-serif;
-}
+} */
 
 .bg-text {
   background-color: rgb(0, 0, 0); /* Fallback color */
@@ -97,15 +97,10 @@ html {
 }
 .nonauth {
   text-align: justify;
-  /* background-color: rgba(127, 255, 0, 0.5); */
   width: 40%;
   font-weight: lighter;
   font-family: "Quicksand", sans-serif;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 15px;
   line-height: 35px;
-  /* border-radius: 2px;
-  border: 1px solid rgba(0, 0, 0, 0.7); */
-  /* position: absolute;
-  left: 30px; */
 }
