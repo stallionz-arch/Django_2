@@ -1,16 +1,23 @@
+
 <!DOCTYPE html>
-<head>
-  {% extends 'base.html' %}
-</head>
+{% extends 'base.html' %}
+
 {% block body %}
+
+{% load static %}
+<head>
+  <link rel="stylesheet" href="{% static 'home/homeStyle.css'%}">
+
+</head>
+
 <body {% load staticfiles %}>
-  <br />
-  <br />
-  <br />
-  {% load admin_urls %} {% if user.is_authenticated %}
+<div class="content">
+  {% load admin_urls %} 
+  {% if user.is_authenticated %}
+  <div class="auth">
   <div class="bg-text">
     <h2>Welcome</h2>
-    <h1 style="font-size: 50px;">{{ user.username }}</h1>
+    <h1 >{{ user.username }}</h1>
   </div>
   <div class="bg-text1">
     <p>
@@ -25,29 +32,25 @@
       Go to Quiz
     </button>
   </div>
+</div>
 
   {% else %}
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <div
-    class="bg-text2 col-md-8 col-md-offset-2 text-center fh5co-heading animate-box fadeInUp animated-fast"
-    id="pink_box"
-  >
-    <div><h1 class="glow">Qriosity 2.0</h1></div>
-    <p class="box-text1">
-      Curiosity, like a mystery has a surface innocence, surprise, the
-      revelation of a concealed meaning and the catharsis of solution.
-    </p>
+  <div class="nonauth">
+      <div><h1 class="glow">Qriosity 2.0</h1></div>
+      <br>
+      <p class="box-text1">
+        Curiosity, like a mystery has a surface innocence, surprise, the
+        revelation of a concealed meaning and the catharsis of solution.
+      </p>
 
-    <p class="box-text2">
-      Curiosity , being the cryptic extravaganza it is, is one of the most
-      popular events of IEEE. It draws participation across all streams,
-      departments and years, with students battling it out for the glory.
-    </p>
+      <p class="box-text2">
+        Curiosity , being the cryptic extravaganza it is, is one of the most
+        popular events of IEEE. It draws participation across all streams,
+        departments and years, with students battling it out for the glory.
+      </p>
   </div>
+</div>
+</div>
   {% endif %}
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js
