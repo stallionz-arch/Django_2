@@ -12,6 +12,7 @@
 
 <body {% load staticfiles %}>
 <div class="content">
+  
   {% load admin_urls %} 
   {% if user.is_authenticated %}
   <div class="auth">
@@ -38,15 +39,12 @@
   <div class="nonauth">
       <div><h1 class="glow">Qriosity 2.0</h1></div>
       <br>
-      <p class="box-text1">
-        Curiosity, like a mystery has a surface innocence, surprise, the
-        revelation of a concealed meaning and the catharsis of solution.
+      <p class="box-text1" id = "demo">
+        Curiosity, like a mystery has a surface innocence, surprise, the revelation of a concealed meaning and the catharsis of solution.
       </p>
 
-      <p class="box-text2">
-        Curiosity , being the cryptic extravaganza it is, is one of the most
-        popular events of IEEE. It draws participation across all streams,
-        departments and years, with students battling it out for the glory.
+      <p class="box-text2" id = "demo2">
+        
       </p>
   </div>
 </div>
