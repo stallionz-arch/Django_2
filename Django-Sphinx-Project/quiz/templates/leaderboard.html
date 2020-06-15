@@ -1,58 +1,50 @@
-{% extends "base.html" %}
-{% block body %}
+{% extends "base.html" %} {% block body %} {% load static %}
 <head>
   <title>Leaderboard</title>
-  <meta name="viewport" content="width=device-width, user-scalable=no">
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
-    <style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: floralwhite;
-}
-        tr:nth-child(odd) {
-  background-color: lemonchiffon;
-}
-</style>
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <link
+    href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link rel="stylesheet" href="{% static 'leaderboard/leadStyle.css'%}" />
 </head>
 
-<body><br>
-    <br>
-    <br>
-<div class="container-fluid">
-    <table>
-    <tr style="background-color:chocolate">
-        <th>Rank</th>
-        <th>UserName</th>
-        <th>Marks</th>
-    </tr>
+<body bgcolor="#0F1231">
+  <div class="container-fluid">
+    <div class="table2">
+      <div class="image">
+        <img src="{% static 'leaderboard/leadboard.png' %}" alt="leaderboard" />
+      </div>
+      <div class="serch">
+        <input type="text" placeholder="Search by username.." id="serch" />
+        <button type="submit" class="sub">Search</button>
+      </div>
+      <table>
+        <tbody align="centre">
+          <tr>
+            <th>Rank</th>
+            <th>User Name</th>
+            <th>Marks</th>
+          </tr>
 
-        {% for i in newlist %}
-            <tr>
-                {% if i.usermcq %}
-                     <td>{{ forloop.counter }}</td>
-                    <td>{{ i.usermcq }}</td>
-                    <td>{{ i.mcqscore }}</td>
-                {% else %}
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ i.usersub }}</td>
-                    <td>{{ i.subscore }}</td>
-                {% endif %}
-            </tr>
-        {% endfor %}
-
-    </table>
-</div>
+          {% for i in newlist %}
+          <tr>
+            {% if i.usermcq %}
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.usermcq }}</td>
+            <td>{{ i.mcqscore }}</td>
+            {% else %}
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.usersub }}</td>
+            <td>{{ i.subscore }}</td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
 </body>
 
 {% endblock %}

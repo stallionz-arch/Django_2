@@ -22,7 +22,7 @@ tl.fromTo(
     ease: "rough",
   });
 
-const cl = document.querySelector("body");
+const cl = document.querySelector(".container");
 cl.addEventListener("mouseover", typeWriter);
 
 var i = 0;

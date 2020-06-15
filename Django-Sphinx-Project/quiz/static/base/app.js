@@ -20,6 +20,6 @@ navLinks.forEach((link) => {
 let tl2 = gsap.timeline({ default: { duration: 1.22 } });
 
 tl2
-  .fromTo(".veil", { height: "100%" }, { height: "0%" })
-  .fromTo("#particles-js", { x: "-500", opacity: 0 }, { x: "0", opacity: 1 })
+  .fromTo(".veil", { height: "100%" }, { height: "0" })
+  .fromTo(".container", { x: "-500", opacity: 0 }, { x: "0", opacity: 1 })
   .fromTo("header", { x: "500", opacity: 0 }, { x: "0", opacity: 1 });
