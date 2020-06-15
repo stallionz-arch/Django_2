@@ -24,13 +24,12 @@
       href="{% static 'base/styles.css' %}"
     />
 
-    <script src="{% static 'quiz/js/main.js' %}"></script>
+    <!-- <script src="{% static 'quiz/js/main.js' %}"></script> -->
   </head>
   <body>
-    <div id="particles-js"></div>
     <div class="cursor"></div>
+    <div class="veil"></div>
     <div class="container">
-      <div class="veil"></div>
       <header>
         <h1>
           <a class="navbar-brand" href="{% url 'home' %}">Qriosity 2.0</a>
@@ -58,41 +57,23 @@
             </li>
             {% else %}
             <li>
-              <a href="{% url 'signup' %}">Sign Up</a>
+              <a href="{% url 'quiz:index' %}">Rules</a>
             </li>
             <li>
               <a href="{% url 'login' %}">Login</a>
             </li>
             <li>
-              <a href="#"> Leader Board </a>
+              <a href="{% url 'quiz:leaderboard' %}"> Leader Board </a>
             </li>
 
             {% endif %}
           </ul>
         </nav>
       </header>
-    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js"></script>
+      <script src="{% static 'base/app.js'%}"></script>
+
+      {% block body %} {% endblock %}
+    </div>
   </body>
 </html>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS.load(
-      "particles-js",
-      "{% static 'welcome/particles.json' %}",
-      function () {
-        console.log("particles.js config loaded ..............");
-      }
-    );
-    </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js"></script>
-<script src="{% static 'base/app.js'%}"></script>
-<!-- <script>
-  particlesJS.load(
-    "particles-js",
-    "{% static 'welcome/particles.json' %}",
-    function () {
-      console.log("particles.js config loaded ..............");
-    }
-  );
-</script> -->
-{% block body %} {% endblock %}

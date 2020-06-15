@@ -8,6 +8,7 @@ html {
 
 .content {
   position: absolute;
+  top: 10vh;
   min-height: 80vh;
   width: 100vw;
   display: flex;
@@ -18,15 +19,6 @@ html {
   flex-wrap: wrap;
   font-size: larger;
 }
-
-/* .pink_box {
-  border-bottom: 5px ridge var(--myrightbot);
-  border-top: 2px solid var(--myleftop);
-  border-left: 2px solid var(--myleftop);
-  border-right: 5px ridge var(--myrightbot);
-  padding: 10px;
-  font-family: "Roboto", sans-serif;
-} */
 
 .bg-text {
   background-color: rgb(0, 0, 0); /* Fallback color */
@@ -63,20 +55,21 @@ html {
 
 .glow {
   font-family: "Roboto", sans-serif;
-  font-size: 40px;
-  color: var(--myleftop);
+  font-size: 60px;
+  color: white;
   text-align: center;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
+}
+/* -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
-}
+} */
 
 .box-text1 {
-  color: var(--myleftop);
+  color: white;
   font-size: 20px;
 }
 .box-text2 {
-  color: var(--myrightbot);
+  color: white;
   font-size: 20px;
 }
 /* @-webkit-keyframes glow {
@@ -93,14 +86,19 @@ html {
 
 .glow {
   text-align: center;
-  color: #00ffff;
+  color: white;
 }
 .nonauth {
   text-align: justify;
   width: 40%;
-  font-weight: lighter;
-  font-family: "Quicksand", sans-serif;
-  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 10px;
+  font-family: sans-serif;
+  /* background-color: rgba(0, 0, 0, 0.7); */
   padding: 15px;
   line-height: 35px;
+}
+
+.para {
+  font-size: 5px;
+  font-family: "Roboto";
 }
